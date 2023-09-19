@@ -3,38 +3,38 @@ package com.example.weatherapp.data.repository.model
 import com.example.weatherapp.data.net.model.ConditionNetModel
 import com.example.weatherapp.data.net.model.CurrentNetModel
 import com.example.weatherapp.data.repository.model.base.BaseRepoModel
-import com.example.weatherapp.domain.model.CurrentDomainModel
+
 
 data class CurrentRepoModel(
-    val cloud: Int,
-    val condition: ConditionNetModel,
-    val feelslikeC: Double,
-    val feelslikeF: Double,
-    val gustKph: Double,
-    val gustMph: Double,
-    val humidity: Int,
-    val isDay: Int,
-    val lastUpdated: String,
-    val lastUpdatedEpoch: Int,
-    val precipIn: Double,
-    val precipMm: Double,
-    val pressureIn: Double,
-    val pressureMb: Double,
-    val tempC: Double,
-    val tempF: Double,
-    val uv: Double,
-    val visKm: Double,
-    val visMiles: Double,
-    val windDegree: Int,
-    val windDir: String,
-    val windKph: Double,
-    val windMph: Double
+    val cloud: Int? =-1,
+    val condition: ConditionRepoModel?=null,
+    val feelslikeC: Double?=0.0,
+    val feelslikeF: Double?=0.0,
+    val gustKph: Double?=0.0,
+    val gustMph: Double?=0.0,
+    val humidity: Int? =-1,
+    val isDay: Int? =-1,
+    val lastUpdated: String? = "",
+    val lastUpdatedEpoch: Int? =-1,
+    val precipIn: Double?=0.0,
+    val precipMm: Double?=0.0,
+    val pressureIn: Double?=0.0,
+    val pressureMb: Double?=0.0,
+    val tempC: Double?=0.0,
+    val tempF: Double?=0.0,
+    val uv: Double?=0.0,
+    val visKm: Double?=0.0,
+    val visMiles: Double?=0.0,
+    val windDegree: Int? =-1,
+    val windDir: String? = "",
+    val windKph: Double?=0.0,
+    val windMph: Double? = 0.0
 ): BaseRepoModel()
 
 fun CurrentNetModel.toRepoModel(): CurrentRepoModel {
     return CurrentRepoModel(
         cloud,
-        condition,
+        condition?.toRepoModel()?: ConditionRepoModel(),
         feelslikeC,
         feelslikeF,
         gustKph,
@@ -62,7 +62,7 @@ fun CurrentNetModel.toRepoModel(): CurrentRepoModel {
 fun CurrentRepoModel.toNetModel(): CurrentNetModel {
     return CurrentNetModel(
         cloud,
-        condition,
+        condition?.toNetModel()?: ConditionNetModel(),
         feelslikeC,
         feelslikeF,
         gustKph,

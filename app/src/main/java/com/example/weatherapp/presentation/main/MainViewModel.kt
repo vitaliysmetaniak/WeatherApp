@@ -3,7 +3,7 @@ package com.example.weatherapp.presentation.main
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.weatherapp.domain.GetCurrentWeatherUseCase
+import com.example.weatherapp.domain.useCase.GetCurrentWeatherUseCase
 import com.example.weatherapp.domain.model.WeatherForecastDomainModel
 import kotlinx.coroutines.launch
 

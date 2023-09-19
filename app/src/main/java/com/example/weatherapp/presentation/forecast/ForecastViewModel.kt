@@ -2,12 +2,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.weatherapp.domain.GetCurrentWeatherUseCase
+import com.example.weatherapp.domain.useCase.GetCurrentWeatherUseCase
 import com.example.weatherapp.domain.model.WeatherForecastDomainModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ForecastViewModel(private val getCurrentWeatherUseCase: GetCurrentWeatherUseCase) : ViewModel() {
-/*
+class ForecastViewModel @Inject constructor(val getCurrentWeatherUseCase: GetCurrentWeatherUseCase) : ViewModel() {
+
     private val _currentWeatherLiveData: MutableLiveData<WeatherForecastDomainModel?> = MutableLiveData(null)
     val currentWeatherLiveData: LiveData<WeatherForecastDomainModel?> = _currentWeatherLiveData
 
@@ -29,7 +30,7 @@ class ForecastViewModel(private val getCurrentWeatherUseCase: GetCurrentWeatherU
                         _loadingLiveData.postValue(false)
                     },
                     onFailure = { error ->
-                        _errorLiveData.postValue(error)
+                        _errorLiveData.postValue(error as Exception)
                         _loadingLiveData.postValue(false)
                     }
                 )
@@ -38,5 +39,5 @@ class ForecastViewModel(private val getCurrentWeatherUseCase: GetCurrentWeatherU
                 _loadingLiveData.postValue(false)
             }
         }
-    }*/
+    }
 }

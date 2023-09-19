@@ -1,9 +1,8 @@
-package com.example.weatherapp.domain
+package com.example.weatherapp.domain.useCase
 
 import com.example.weatherapp.domain.model.WeatherForecastDomainModel
 
 interface GetCurrentWeatherUseCase {
-//    suspend fun getCurrentWeather(city: String): Result<WeatherForecastDomainModel>
     suspend operator fun invoke(city: String): Result<WeatherForecastDomainModel>
 
 

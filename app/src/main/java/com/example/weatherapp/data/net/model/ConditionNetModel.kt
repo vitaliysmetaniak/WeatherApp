@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName
 
 data class ConditionNetModel(
     @SerializedName("code")
-    val code: String,
+    val code: String? = "",
     @SerializedName("icon")
-    val icon: String,
+    val icon: String? = "",
     @SerializedName("text")
-    val text: String
+    val text: String? = ""
 ) : BaseNetModel()

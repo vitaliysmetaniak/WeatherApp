@@ -1,7 +1,7 @@
 package com.example.weatherapp.data.di
 
 import com.example.weatherapp.data.net.source.WeatherNetSource
-import com.example.weatherapp.data.net.source.WeatherNetSourceImpl
+import com.example.weatherapp.data.net.source.impl.WeatherNetSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

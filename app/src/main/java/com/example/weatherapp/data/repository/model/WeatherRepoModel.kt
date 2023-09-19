@@ -1,37 +1,26 @@
 package com.example.weatherapp.data.repository.model
 
+import com.example.weatherapp.data.net.model.CurrentNetModel
+import com.example.weatherapp.data.net.model.ForecastNetModel
+import com.example.weatherapp.data.net.model.LocationNetModel
 import com.example.weatherapp.data.net.model.WeatherForecastNetModel
 import com.example.weatherapp.data.repository.model.base.BaseRepoModel
-import com.example.weatherapp.domain.model.CurrentDomainModel
-import com.example.weatherapp.domain.model.LocationDomainModel
-import com.example.weatherapp.domain.model.WeatherForecastDomainModel
-import com.example.weatherapp.domain.model.toDomainModel
-import com.example.weatherapp.domain.model.toNetModel
 
 data class WeatherRepoModel(
-    val current: CurrentRepoModel,
-    val location: LocationRepoModel
+    val current: CurrentRepoModel?=null,
+    val forecast: ForecastRepoModel?=null,
+    val location: LocationRepoModel?=null
 ) : BaseRepoModel()
 
-//
-//fun WeatherForecastDomainModel.toRepoModel() = WeatherRepoModel(
-//    current.toRepoModel(),
-//    location.toRepoModel()
-//)
-//
-//fun WeatherRepoModel.toDomainModel() = WeatherForecastDomainModel(
-//    current.toDomainModel(),
-//    location.toDomainModel()
-//)
-
-
 fun WeatherForecastNetModel.toRepoModel() = WeatherRepoModel(
-    current.toRepoModel(),
-    location.toRepoModel()
+    current?.toRepoModel()?: CurrentRepoModel(),
+    forecast?.toRepoModel()?: ForecastRepoModel(),
+    location?.toRepoModel()?: LocationRepoModel()
 )
 
 
 fun WeatherRepoModel.toNetModel() = WeatherForecastNetModel(
-    current.toNetModel(),
-    location.toNetModel()
+    current?.toNetModel()?: CurrentNetModel(),
+    forecast?.toNetModel()?: ForecastNetModel(),
+    location?.toNetModel()?: LocationNetModel()
 )

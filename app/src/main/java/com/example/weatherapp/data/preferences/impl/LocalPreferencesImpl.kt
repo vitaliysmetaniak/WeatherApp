@@ -1,12 +1,10 @@
-package com.example.weatherapp.data.preferences
+package com.example.weatherapp.data.preferences.impl
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.weatherapp.data.preferences.LocalPreferences
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
-
-// TODO 3
-
 
 class LocalPreferencesImpl @Inject constructor(
     @ApplicationContext
@@ -22,7 +20,6 @@ class LocalPreferencesImpl @Inject constructor(
 
     override fun set(key: String, value: Any) {
         sharedPreferences.edit().apply {
-            // знайшов приклад змавпував мб щось не те розпитати
             when (value) {
                 is String -> putString(key, value)
                 is Int -> putInt(key, value)

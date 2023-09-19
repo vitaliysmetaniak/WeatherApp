@@ -1,7 +1,7 @@
 package com.example.weatherapp.data.di
 
 import com.example.weatherapp.data.preferences.LocalPreferences
-import com.example.weatherapp.data.preferences.LocalPreferencesImpl
+import com.example.weatherapp.data.preferences.impl.LocalPreferencesImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,20 +18,3 @@ abstract class PreferenceNetModule {
     ): LocalPreferences
 
 }
-
-
-/*
-
-@Module
-@InstallIn(SingletonComponent::class)
-abstract class NetSourceModule {
-
-    @Binds
-    @Singleton
-    abstract fun bindWeatherNetSource(
-        weatherNetSourceImpl: WeatherNetSourceImpl
-    ): WeatherNetSource
-
-}
-
- */
