@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.weatherapp.databinding.FragmentSaveCityBinding
+import com.example.weatherapp.databinding.FragmentSearchCityBinding
 
 class SaveCityFragment: Fragment() {
 
-    private var _binding: FragmentSaveCityBinding? = null
+    private var _binding: FragmentSearchCityBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: SaveCityViewModel by viewModels()
@@ -20,7 +20,7 @@ class SaveCityFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentSaveCityBinding.inflate(inflater, container, false)
+        _binding = FragmentSearchCityBinding.inflate(inflater, container, false)
         return binding.root
     }
 

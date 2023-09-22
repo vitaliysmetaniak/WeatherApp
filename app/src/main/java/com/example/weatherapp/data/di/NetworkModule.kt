@@ -4,7 +4,6 @@ import android.content.Context
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.chuckerteam.chucker.api.RetentionManager
-import com.example.weatherapp.MyAplication
 import com.example.weatherapp.data.net.NetworkConstants
 import com.example.weatherapp.data.net.interceptor.ApiKeyInterceptor
 import com.example.weatherapp.data.net.service.WeatherApiService
