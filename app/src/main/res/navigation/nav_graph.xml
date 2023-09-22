@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/currentFragment">
+
+    <fragment
+        android:id="@+id/currentFragment"
+        android:name="com.example.weatherapp.presentation.fragment.CurrentWeatherFragment"
+        android:label="fragment_current"
+        tools:layout="@layout/fragment_current_weather">
+        <action android:id="@+id/action_currentFragment_to_forecastFragment"
+            app:destination="@id/forecastFragment">
+            <argument
+                android:name="myArgCurrent"
+                app:argType="string"
+                android:defaultValue="current" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/forecastFragment"
+        android:name="com.example.weatherapp.presentation.fragment.ForecastWeatherFragment"
+        android:label="fragment_forecast"
+        tools:layout="@layout/fragment_forecast_weather">
+        <action android:id="@+id/action_forecastFragment_to_searchFragment"
+            app:destination="@id/searchFragment">
+            <argument
+                android:name="myArgForecast"
+                app:argType="string"
+                android:defaultValue="forecast" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.weatherapp.presentation.fragment.SearchCityFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_current_weather">
+        <action android:id="@+id/action_searchFragment_to_currentFragment"
+            app:destination="@id/currentFragment">
+            <argument
+                android:name="myArgSearch"
+                app:argType="string"
+                android:defaultValue="search" />
+        </action>
+    </fragment>
+
+</navigation>
