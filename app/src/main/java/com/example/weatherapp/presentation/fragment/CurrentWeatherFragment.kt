@@ -15,8 +15,15 @@ class CurrentWeatherFragment: Fragment(R.layout.fragment_current_weather) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCurrentWeatherBinding.bind(view)
-        binding.btnCurrent.setOnClickListener {
-            findNavController().navigate(R.id.forecastFragment)
+
+        with(binding){
+            binding.tvCurrent.text = "Current Fragment"
+            binding.btnCurrent.setOnClickListener {
+                findNavController().navigate(R.id.forecastFragment)
+            }
+        }
+        this.arguments?.let {
+            it.toString()
         }
     }
 }

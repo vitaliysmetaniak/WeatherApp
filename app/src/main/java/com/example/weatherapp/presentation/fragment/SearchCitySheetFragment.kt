@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import com.example.weatherapp.databinding.FragmentSearchCitySheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -13,8 +15,13 @@ class SearchCitySheetFragment: BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnSearchSheet.setOnClickListener {
-            Toast.makeText(requireContext(), "search city", Toast.LENGTH_SHORT).show()
+
+        with(binding){
+            btnSearchSheet.setOnClickListener {
+                val result = "result"
+                Toast.makeText(requireContext(), "search city", Toast.LENGTH_SHORT).show()
+                parentFragmentManager.setFragmentResult("requestKey", bundleOf("bundleKey" to result))
+            }
         }
     }
 
